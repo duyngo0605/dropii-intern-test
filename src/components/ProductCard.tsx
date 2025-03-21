@@ -138,13 +138,13 @@ export function ProductCard({ product }: ProductCardProps) {
 
     return (
       <span>
-        <span style={{ fontWeight: 700 }}>₫</span> {formattedNumber}
+        <span><u>đ</u></span> {formattedNumber}
       </span>
     );
   };
 
-  const formatSoldCount = (count: number) => {
-    return count >= 1000 ? `${(count / 1000).toFixed(1)}k` : count.toString();
+  const formatSoldCount = (count: number) => {  
+    return count >= 1000 ? `${(count / 1000).toFixed(1).replace(".", ",")}k` : count.toString();  
   };
 
   return (
@@ -288,7 +288,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
           {product.totalSold && (
             <Typography variant="caption" color="text.secondary">
-              {formatSoldCount(product.totalSold)} đã bán
+              {formatSoldCount(product.totalSold)} Đã bán
             </Typography>
           )}
         </Stack>
